@@ -1,0 +1,833 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #07111f;
+  color: white;
+}
+
+.dashboard {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 35px 25px 60px;
+}
+
+.dashboard h1 {
+  text-align: center;
+  font-size: 42px;
+  margin: 10px 0;
+}
+
+.dashboard-subtitle {
+  text-align: center;
+  font-size: 18px;
+  color: #b8c7d9;
+  margin-bottom: 35px;
+}
+
+/* STATISTICS */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  padding: 25px 15px;
+  text-align: center;
+  border: 1px solid #33465c;
+  border-radius: 16px;
+  background: #101d2d;
+}
+
+.stat-icon {
+  font-size: 30px;
+}
+
+.stat-card h3 {
+  font-size: 17px;
+  margin: 12px 0;
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+.stat-card p {
+  color: #91a4b8;
+  margin: 0;
+}
+
+/* CHARTS */
+
+.dashboard-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.chart-card {
+  background: #101d2d;
+  border: 1px solid #33465c;
+  border-radius: 16px;
+  padding: 25px;
+}
+
+.chart-card h2 {
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+/* THREAT BARS */
+
+.bar-row {
+  margin-bottom: 20px;
+}
+
+.bar-row > span {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.bar {
+  height: 25px;
+  background: #202f40;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  padding-left: 10px;
+  line-height: 25px;
+  font-size: 13px;
+  border-radius: 20px;
+  background: #249bd7;
+}
+
+/* WEEKLY ACTIVITY */
+
+.activity-chart {
+  height: 220px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 12px;
+  border-bottom: 1px solid #46586c;
+}
+
+.activity-column {
+  width: 35px;
+  min-height: 30px;
+  background: #25c7ff;
+  border-radius: 6px 6px 0 0;
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+  font-size: 13px;
+}
+
+.days {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 12px;
+  color: #91a4b8;
+}
+
+/* THREAT SCORE */
+
+.threat-panel {
+  margin-top: 30px;
+  padding: 30px;
+  background: #101d2d;
+  border: 1px solid #33465c;
+  border-radius: 16px;
+}
+
+.threat-panel h2 {
+  text-align: center;
+}
+
+.score-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin-top: 30px;
+}
+
+.score-circle {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.score-inner {
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  background: #07111f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.score-inner strong {
+  font-size: 45px;
+}
+
+.score-inner span {
+  color: #91a4b8;
+}
+
+.score-info {
+  max-width: 450px;
+}
+
+.score-info h3 {
+  font-size: 28px;
+}
+
+.risk-levels {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* SECURITY */
+
+.security-section {
+  margin-top: 30px;
+}
+
+.security-section h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.security-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.security-grid div {
+  padding: 25px;
+  text-align: center;
+  background: #101d2d;
+  border: 1px solid #33465c;
+  border-radius: 16px;
+}
+
+.security-grid span {
+  display: block;
+  color: #91a4b8;
+  margin-bottom: 12px;
+}
+
+.security-grid strong {
+  font-size: 28px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .stats-grid,
+  .security-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-charts {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .stats-grid,
+  .security-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard h1 {
+    font-size: 30px;
+  }
+
+  .score-container {
+    flex-direction: column;
+    gap: 25px;
+  }
+}
+/* ===== SIH PRESENTATION POLISH ===== */
+
+.dashboard {
+  min-height: 100vh;
+  background: #07111f;
+}
+
+/* Cards */
+.stat-card,
+.panel,
+.report-section {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.stat-card:hover,
+.panel:hover {
+  transform: translateY(-2px);
+  border-color: #25c7ff;
+}
+
+/* Section headings */
+.panel h2,
+.security-section h2 {
+  font-size: 20px;
+  letter-spacing: 0.3px;
+}
+
+/* Analysis button */
+.email-panel button,
+.report-section button {
+  background: #168ac0;
+  transition: 0.2s;
+}
+
+.email-panel button:hover,
+.report-section button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(37, 199, 255, 0.25);
+}
+
+/* Threat score emphasis */
+.score-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Make important values stand out */
+.stat-card strong,
+.security-grid strong {
+  color: #25c7ff;
+}
+
+/* Better textarea */
+.email-panel textarea:focus {
+  outline: none;
+  border-color: #25c7ff;
+  box-shadow: 0 0 0 2px rgba(37, 199, 255, 0.12);
+}
+
+/* Report section */
+.report-section {
+  border-top: 2px solid #25c7ff;
+}
+
+/* Footer */
+footer {
+  padding-bottom: 20px;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .dashboard {
+    padding: 20px;
+  }
+
+  .dashboard h1 {
+    font-size: 34px;
+  }
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+  background: #07111f;
+}
+
+.sidebar {
+  width: 260px;
+  background: #0d1829;
+  border-right: 1px solid #1d2d40;
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 8px 18px;
+  border-bottom: 1px solid rgba(127, 159, 181, 0.2);
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #1ec7ff, #0b7dff);
+  color: white;
+  font-weight: 700;
+}
+
+.brand-lockup strong,
+.brand-lockup span {
+  display: block;
+}
+
+.brand-lockup span {
+  color: #9ab1c5;
+  font-size: 12px;
+}
+
+.nav-label {
+  color: #89a2be;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0 10px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #dfeaf8;
+  background: transparent;
+  transition: 0.2s ease;
+}
+
+.sidebar-nav a.active,
+.sidebar-nav a:hover {
+  background: rgba(22, 138, 192, 0.18);
+  color: #73d4ff;
+}
+
+.nav-icon {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: rgba(37, 199, 255, 0.12);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid rgba(93, 121, 145, 0.5);
+  border-radius: 12px;
+  background: rgba(12, 19, 31, 0.8);
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #5ef7a1;
+  box-shadow: 0 0 10px rgba(94, 247, 161, 0.8);
+}
+
+.sidebar-footer strong,
+.sidebar-footer span {
+  display: block;
+}
+
+.sidebar-footer span {
+  color: #9ab1c5;
+  font-size: 12px;
+}
+
+.main {
+  flex: 1;
+  padding: 20px 24px 32px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0 18px;
+  border-bottom: 1px solid rgba(127, 159, 181, 0.2);
+  color: #bdd1ea;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-pill {
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(37, 199, 255, 0.08);
+  border: 1px solid rgba(37, 199, 255, 0.2);
+  color: #aee7ff;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.logout-btn {
+  border: none;
+  border-radius: 10px;
+  background: #122033;
+  color: #e8f3ff;
+  padding: 8px 12px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0 10px;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.system-status {
+  color: #8ef0b1;
+  font-size: 14px;
+}
+
+.email-panel textarea,
+.geo-input-card input,
+.login-form input,
+.geo-input-card textarea {
+  width: 100%;
+  padding: 15px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(124, 145, 170, 0.4);
+  background: rgba(7, 17, 31, 0.6);
+  color: #edf6ff;
+  resize: vertical;
+}
+
+.email-panel button,
+.geo-input-card button,
+.login-form button,
+.report-section button {
+  margin-top: 18px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #18a8d5, #1665c0);
+  color: white;
+  padding: 12px 18px;
+  font-weight: 700;
+}
+
+.email-panel button:disabled,
+.geo-input-card button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.analysis-result,
+.risk-card,
+.forensic-section,
+.geo-results,
+.report-header,
+.report-section,
+.recommendation,
+.final-assessment,
+.geo-input-card,
+.forensics-page,
+.reports-page,
+.email-analysis-page,
+.geo-page,
+.admin-page {
+  margin-top: 24px;
+  background: rgba(16, 29, 45, 0.88);
+  border: 1px solid rgba(102, 136, 170, 0.3);
+  border-radius: 18px;
+  padding: 22px;
+}
+
+.result-row,
+.info-list div,
+.geo-grid .geo-card,
+.report-card,
+.summary-card,
+.auth-card,
+.info-grid div,
+.security-grid div,
+.stat-card,
+.panel {
+  background: rgba(13, 24, 41, 0.9);
+  border: 1px solid rgba(102, 136, 170, 0.26);
+  border-radius: 14px;
+}
+
+.result-row,
+.info-list div,
+.geo-grid .geo-card,
+.report-card,
+.summary-card,
+.auth-card,
+.info-grid div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+}
+
+.analysis-result {
+  display: grid;
+  gap: 12px;
+}
+
+.error-box {
+  margin-top: 12px;
+  color: #ffc7c7;
+  background: rgba(178, 54, 54, 0.15);
+  border: 1px solid rgba(178, 54, 54, 0.45);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.forensic-grid,
+.report-grid,
+.geo-grid,
+.info-grid,
+.auth-grid,
+.security-grid,
+.stats-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.report-grid,
+.geo-grid,
+.info-grid,
+.auth-grid,
+.security-grid,
+.stats-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.geo-grid,
+.info-grid,
+.auth-grid {
+  margin-top: 18px;
+}
+
+.map-placeholder {
+  margin-top: 22px;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, rgba(26, 72, 104, 0.65), rgba(10, 13, 22, 0.8));
+  border: 1px solid rgba(128, 197, 255, 0.25);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.map-pin {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.report-header {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.report-header div,
+.report-card,
+.summary-card {
+  padding: 18px;
+}
+
+.report-header span,
+.report-card span,
+.summary-card span,
+.geo-card span,
+.info-list span,
+.forensic-item span,
+.security-grid span,
+.info-grid span {
+  display: block;
+  color: #9ab1c5;
+  margin-bottom: 8px;
+}
+
+.report-card strong,
+.summary-card strong,
+.geo-card strong,
+.info-list strong,
+.forensic-item strong,
+.security-grid strong,
+.info-grid strong {
+  font-size: 20px;
+}
+
+.subtitle {
+  color: #bcd1e7;
+  margin-bottom: 18px;
+}
+
+.case-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.case-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: rgba(9, 17, 30, 0.7);
+  border: 1px solid rgba(102, 136, 170, 0.24);
+}
+
+.case-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  color: #b9dfff;
+}
+
+.login-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at top, rgba(17, 120, 182, 0.24), #07111f 58%);
+  padding: 20px;
+}
+
+.login-card {
+  width: min(100%, 430px);
+  background: rgba(10, 16, 26, 0.95);
+  border: 1px solid rgba(109, 141, 182, 0.35);
+  border-radius: 20px;
+  padding: 26px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.login-badge {
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(32, 182, 255, 0.12);
+  color: #8fe0ff;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.login-form {
+  display: grid;
+  gap: 16px;
+}
+
+.login-form label {
+  display: grid;
+  gap: 8px;
+  color: #d7e7fb;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #1d2d40;
+  }
+
+  .stats-grid,
+  .report-grid,
+  .security-grid,
+  .report-header {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard {
+    padding: 15px;
+  }
+
+  .dashboard h1 {
+    font-size: 27px;
+  }
+
+  .dashboard-subtitle {
+    font-size: 15px;
+  }
+
+  .panel,
+  .stat-card,
+  .report-section,
+  .analysis-result,
+  .risk-card,
+  .forensic-section,
+  .geo-results,
+  .report-header,
+  .report-section,
+  .recommendation,
+  .final-assessment,
+  .geo-input-card,
+  .forensics-page,
+  .reports-page,
+  .email-analysis-page,
+  .geo-page,
+  .admin-page {
+    padding: 18px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .topbar-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
